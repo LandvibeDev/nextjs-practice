@@ -1,27 +1,19 @@
 import fetch from 'isomorphic-unfetch'
+import {useState} from "react";
+import Link from 'next/link'
 
-export default function Home({user}) {
-    const username = user && user.name;
+export default function Home() {
+    const [username, setUsername] = useState('')
     return (
         <div>
-            {username}
+            <label>
+                username
+                <input value={username} onChange={(e) => setUsername(e.target.value)}/>
+            </label>
+            <p>{username} 깃허브 검색하기</p>
+            <Link href={`/users/${username}`}>
+                <a>검색하기</a>
+            </Link>
         </div>
     )
-}
-
-export const getServerSideProps = async () =>{
-    try {
-        const res = await fetch('https://api.github.com/users/raccoonback')
-        if(res.status === 200) {
-            const user = await res.json()
-            return {
-                props: {user}
-            }
-        }
-    } catch (e) {
-        console.error(e)
-        return {
-            props: {}
-        }
-    }
 }
