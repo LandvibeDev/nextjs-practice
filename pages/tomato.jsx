@@ -1,7 +1,7 @@
 import Link from "next/link"
 
 const Child = () => {
-    return <p>Move to '/tomato'</p>
+    return <p>Move to "/tomato"</p>
 }
 
 const Tomato = () => {
