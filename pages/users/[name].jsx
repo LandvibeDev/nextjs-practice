@@ -22,7 +22,7 @@ const name = ({user}) => {
                 )
                 :
                 (
-                    <div>유저 정보가 없습니다</div>
+                    <div>Hello World</div>
                 )
         }
         <style jsx>{style}</style>
